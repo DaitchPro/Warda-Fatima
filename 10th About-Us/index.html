@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind Config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            jost: ["Jost", "sans-serif"],
+            roman: ['"Times New Roman"', "Times", "serif"],
+          },
+
+          screens: {
+            xsm: "320px",
+            sm: "640px",
+            md: "768px",
+            lg: "1024px",
+            mlg: "1143px",
+            xl: "1280px",
+            mxl: "1487px",
+            "2xl": "1994px",
+          },
+
+          extend: {
+            colors: {
+              lightGreen: "#00D8BD",
+              boldGreen: "#007666",
+              white: "#FFFFFF",
+
+              darkGreen: "#007666",
+              deepGreen: "#083D1F",
+              mintGreen: "#018B4B",
+              tealGreen: "#33B0A0",
+            },
+
+            backgroundImage: {
+              "gradient-dark": "linear-gradient(to right, #007666, #083D1F)",
+              "gradient-mint": "linear-gradient(to right, #018B4B, #33B0A0)",
+            },
+
+            animation: {
+              marquee: "marquee 10s linear infinite",
+              marqueeFast: "marquee 2s linear infinite",
+            },
+
+            keyframes: {
+              marquee: {
+                "0%": { transform: "translateX(0%)" },
+                "100%": { transform: "translateX(-50%)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <title>About Us</title>
+  </head>
+
+  <body class="bg-[url('images/bg-Grid.png')] text-white min-h-screen font-jost px-4">
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="nav-container">
+        <!-- Logo -->
+        <div class="logo-container d-flex align-items-center">
+          <img src="images/Logo.png" alt="Logo" class="logo-img" />
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav id="navMenu" class="d-lg-flex align-items-center gap-3">
+          <a href="#" class="custom-nav">Home</a>
+          <a href="#" class="custom-nav">About Us</a>
+          <a href="#" class="custom-nav">Contact Us</a>
+
+          <nav>
+            <a
+              href="#"
+              class="custom-nav"
+              id="platformToggle"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Platform
+            </a>
+
+            <ul
+              class="dropdown-menu"
+              id="platformMenu"
+              role="menu"
+              aria-labelledby="platformToggle"
+            >
+              <li role="none"><a role="menuitem" href="#">AI Workforce</a></li>
+              <li role="none"><a role="menuitem" href="#">MarketPlace</a></li>
+              <li role="none"><a role="menuitem" href="#">Automations</a></li>
+              <li role="none">
+                <a role="menuitem" href="#">Project Management</a>
+              </li>
+              <li role="none"><a role="menuitem" href="#">Payments</a></li>
+            </ul>
+          </nav>
+
+          <a href="#" class="custom-nav">Solutions</a>
+          <a href="#" class="custom-nav">Products</a>
+        </nav>
+
+        <div class="nav-auth d-lg-flex align-items-center gap-2">
+          <a href=""><button class="auth-btn">Log In</button></a>
+          <a href=""><button class="auth-btn">Sign Up</button></a>
+        </div>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mobileMenu"
+        >
+          ☰
+        </button>
+      </div>
+    </header>
+
+    <div class="offcanvas offcanvas-end bg-dark text-white" id="mobileMenu">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Menu</h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+        ></button>
+      </div>
+
+      <div class="offcanvas-body">
+        <nav class="d-flex flex-column gap-2">
+          <a href="#" class="mobile-nav" data-bs-dismiss="offcanvas">Home</a>
+          <a href="#" class="mobile-nav" data-bs-dismiss="offcanvas"
+            >About Us</a
+          >
+          <a href="#" class="mobile-nav" data-bs-dismiss="offcanvas"
+            >Contact Us</a
+          >
+          <a
+            href="#"
+            class="custom-nav"
+            id="platformToggle"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Platform
+          </a>
+
+          <ul
+            class="dropdown-menu"
+            id="platformMenu"
+            role="menu"
+            aria-labelledby="platformToggle"
+          >
+            <li role="none"><a role="menuitem" href="#">AI Workforce</a></li>
+            <li role="none"><a role="menuitem" href="#">MarketPlace</a></li>
+            <li role="none"><a role="menuitem" href="#">Automations</a></li>
+            <li role="none">
+              <a role="menuitem" href="#">Project Management</a>
+            </li>
+            <li role="none"><a role="menuitem" href="#">Payments</a></li>
+          </ul>
+          <ul
+            class="dropdown-menu"
+            id="solutionsMenu"
+            role="menu"
+            aria-labelledby="solutionToggle"
+          >
+            <li role="none"><a role="menuitem" href="#">Web Agency</a></li>
+            <li role="none">
+              <a role="menuitem" href="#">Digital Agency Startup</a>
+            </li>
+            <li role="none"><a role="menuitem" href="#">SaaS</a></li>
+            <li role="none">
+              <a role="menuitem" href="#">Social Media Agency</a>
+            </li>
+            <li role="none"><a role="menuitem" href="#">Marketing</a></li>
+            <li role="none">
+              <a role="menuitem" href="#">Creative Agencies</a>
+            </li>
+            <li role="none"><a role="menuitem" href="#">Software vendor</a></li>
+            <li role="none"><a role="menuitem" href="#">Sales</a></li>
+          </ul>
+          <a href="#" class="mobile-nav" data-bs-dismiss="offcanvas"
+            >Products</a
+          >
+        </nav>
+
+        <div class="mt-4 d-flex flex-column gap-2">
+          <a href=""><button class="auth-btn w-100">Log In</button></a>
+          <a href=""><button class="auth-btn w-100">Sign Up</button></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section
+      class="w-full bg-center bg-cover bg-no-repeat py-14 px-6 flex justify-center mt-16"
+    >
+      <div
+        class="max-w-6xl w-full border bg-linear-to-t from-[#0030295c] to-[#000f0d8a] backdrop-blur-md px-10 py-10 flex flex-col lg:flex-row justify-between items-start gap-12"
+      >
+        <!-- LEFT TEXT -->
+        <div class="lg:w-2/3">
+          <h1
+            class="text-white text-4xl md:text-5xl font-jost font-semibold leading-snug"
+          >
+            We empower businesses to start and grow confidently with AI.
+          </h1>
+        </div>
+
+        <!-- RIGHT SECTION -->
+        <div class="lg:w-1/3 flex flex-col gap-6">
+          <p class="text-white text-lg leading-relaxed font-jost">
+            Everything you need to automate, optimize, and grow — powered by
+            DaitchPro’s intelligent AI platform and trusted support
+          </p>
+
+          <!-- TEAM AVATARS + ICON -->
+          <div class="flex items-center">
+            <!-- 4 Profile Images (PNG placeholders) -->
+            <img
+              src="images/hero-img1.jpg"
+              alt="team1"
+              class="w-14 h-14 border rounded-full object-cover bg-gray-100"
+            />
+            <img
+              src="images/hero-img2.jpg"
+              alt="team2"
+              class="w-14 h-14 border rounded-full object-cover -ml-5 bg-gray-50"
+            />
+            <img
+              src="images/hero-img3.jpg"
+              alt="team3"
+              class="w-14 h-14 border rounded-full object-cover -ml-5 bg-gray-50"
+            />
+
+            <!-- PLUS ICON (SVG placeholder) -->
+            <div class="w-12 h-12 rounded-full -ml-5">
+              <img src="icons/flat-color-icons_plus.svg" alt="plus-icon" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 IMAGE GALLERY SECTION -->
+    <section
+      class="w-full bg-center bg-cover bg-no-repeat py-14 px-6 flex justify-center"
+    >
+      <div
+        class="max-w-7xl w-full flex flex-col lg:flex-row items-center justify-between gap-10"
+      >
+        <!-- IMAGE 1 -->
+        <div class="w-full lg:w-1/2">
+          <img
+            src="images/gallery-1.png"
+            alt="gallery-1"
+            class="w-full h-auto rounded-3xl object-cover"
+          />
+        </div>
+
+        <!-- IMAGE 2 -->
+        <div class="w-full lg:w-1/2">
+          <img
+            src="images/gallery-2.png"
+            alt="gallery-2"
+            class="w-full h-auto rounded-3xl object-cover"
+          />
+        </div>
+
+        <!-- IMAGE 3 -->
+        <div class="w-full lg:w-1/2">
+          <img
+            src="images/gallery-3.png"
+            alt="gallery-3"
+            class="w-full h-auto rounded-3xl object-cover"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS HERO SECTION -->
+    <section
+      class="w-full bg-center bg-cover bg-no-repeat py-24 px-6 flex flex-col items-center text-center"
+    >
+      <!-- TOP SMALL HEADING -->
+      <p class="text-white text-sm tracking-wide mb-4 font-jost">
+        Over
+        <span class="text-[#00D8BD] underline underline-offset-4"
+          >150,0000 client</span
+        >
+      </p>
+
+      <!-- MAIN PARAGRAPH -->
+      <h2
+        class="text-white font-jost font-semibold text-3xl md:text-4xl xl:text-5xl leading-snug max-w-5xl"
+      >
+        We’ve powered 27,000+ <br />
+        successful automations and lead <br />
+        generation projects over the last <br />
+        5 years — with proven results and <br />
+        client satisfaction
+      </h2>
+
+      <!-- STATS BAR -->
+      <div
+        class="w-full h-50 mt-16 bg-gradient-to-t from-[#0030295c] to-[#000f0d8a] flex justify-center items-center bg-backgroundimage backdrop-blur-lg"
+      >
+        <div
+          class="w-full border max-w-7xl border-x-white/20 border-y-white/60 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6"
+        >
+          <!-- ITEM 1 -->
+          <div class="border-r border-white/20 px-8 py-4 flex flex-col">
+            <span class="text-white text-2xl font-semibold">10K+</span>
+            <span class="text-white text-sm mt-1 tracking-wide"
+              >Active Users</span
+            >
+          </div>
+
+          <!-- ITEM 2 -->
+          <div class="border-r border-white/20 px-8 py-4 flex flex-col">
+            <span class="text-white text-2xl font-semibold">43K+</span>
+            <span class="text-white text-sm mt-1 tracking-wide"
+              >Projects completed</span
+            >
+          </div>
+
+          <!-- ITEM 3 -->
+          <div class="border-r border-white/20 px-8 py-4 flex flex-col">
+            <span class="text-white text-2xl font-semibold">12K+</span>
+            <span class="text-white text-sm mt-1 tracking-wide"
+              >tasks automated</span
+            >
+          </div>
+
+          <!-- ITEM 4 -->
+          <div class="border-r border-white/20 px-8 py-4 flex flex-col">
+            <span class="text-white text-3xl font-bold">5M</span>
+            <span class="text-white text-sm mt-1 tracking-wide"
+              >Leads Proceed</span
+            >
+          </div>
+
+          <!-- ITEM 5 -->
+          <div class="border-r border-white/20 px-8 py-4 flex flex-col">
+            <span class="text-white text-2xl font-semibold">98%</span>
+            <span class="text-white text-sm mt-1 tracking-wide"
+              >Satisfication rate</span
+            >
+          </div>
+
+          <!-- ITEM 6 -->
+          <div class="px-8 py-4 flex flex-col">
+            <span class="text-white text-2xl font-semibold">24/7</span>
+            <span class="text-white text-sm mt-1 tracking-wide"
+              >Active Monitoring</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNERS SECTION -->
+    <section
+      class="w-full py-18 px-6 grid-bg text-white flex flex-col items-center text-center"
+    >
+      <!-- SMALL TOP HEADING -->
+      <p class="text-white text-xl tracking-wide">Automating Success</p>
+
+      <!-- MAIN HEADING -->
+      <h2
+        class="font-jost font-semibold text-4xl md:text-5xl my-8 leading-tight"
+      >
+        Our <span class="text-[#00D8BD]">partners</span>
+      </h2>
+
+      <!-- DESCRIPTION TEXT -->
+      <p
+        class="max-w-4xl text-base md:text-lg font-jost leading-relaxed text-white/90 mb-4"
+      >
+        DaitchPro is the AI-powered automation platform designed to help
+        businesses generate, manage, and convert leads with ease. We enable
+        teams and agencies to automate their marketing, sales, and project
+        workflows using real intelligence—not guesswork.
+        <br /><br />
+        From startups to large enterprises, DaitchPro delivers what manual
+        systems can’t — smarter automation, faster growth, and measurable
+        results.
+      </p>
+
+      <!-- CARDS GRID -->
+      <div
+        class="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10"
+      >
+        <!-- CARD 1 -->
+        <div
+          class="rounded-2xl p-10 bg-gradient-to-t from-darkGreen/50 to-[#008dbd]/30 backdrop-blur-md border border-primary/40 hover:bg-white/10 transition linear 700 cursor-pointer shadow-[0_0_25px_rgba(0,216,189,0.15)]"
+        >
+          <h3 class="text-2xl font-semibold font-jost mb-4">
+            Reseller Partners
+          </h3>
+          <p class="text-white/90 text-base leading-relaxed font-jost">
+            For agencies, marketers, and business teams ready to scale —
+            DaitchPro delivers the AI tools to attract, engage, and retain
+            customers effortlessly.
+          </p>
+        </div>
+
+        <!-- CARD 2 -->
+        <div
+          class="rounded-2xl p-10 bg-gradient-to-t from-darkGreen/50 to-[#008dbd]/30 backdrop-blur-md border border-primary/40 hover:bg-white/10 transition linear 700 cursor-pointer shadow-[0_0_25px_rgba(0,216,189,0.15)]"
+        >
+          <h3 class="text-2xl font-semibold font-jost mb-4">Trusted Partner</h3>
+          <p class="text-white/90 text-base leading-relaxed font-jost">
+            From automation to growth, you’re backed by a team that knows what
+            it takes to scale. You + DaitchPro = unstoppable.
+          </p>
+        </div>
+
+        <!-- CARD 3 -->
+        <div
+          class="rounded-2xl p-10 bg-gradient-to-t from-darkGreen/50 to-[#008dbd]/30 backdrop-blur-md border hover:bg-white/10 transition linear 700 cursor-pointer shadow-[0_0_25px_rgba(0,216,189,0.15)]"
+        >
+          <h3 class="text-2xl font-semibold font-jost mb-4">
+            Scaling Businesses
+          </h3>
+          <p class="text-white/90 text-base leading-relaxed font-jost">
+            Our AI agents help you attract, convert, and retain customers —
+            without the hassle of manual work.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORE VALUES SECTION -->
+    <section
+      class="w-full py-24 px-6 grid-bg text-white flex flex-col items-center"
+    >
+      <!-- TOP SMALL HEADING -->
+      <p class="text-white/80 text-2xl font-bold font-roman tracking-wide">
+        What Fuels Us
+      </p>
+
+      <!-- MAIN HEADING -->
+      <h2 class="font-jost font-semibold text-4xl md:text-5xl my-8">
+        Core <span class="text-[#00d8bd]">Values</span>
+      </h2>
+
+      <!-- DESCRIPTION -->
+      <p
+        class="max-w-5xl text-center text-white/80 leading-relaxed font-jost mb-20 px-4"
+      >
+        We don’t hang our values on a wall. We live them. Every decision, every
+        interaction, every line of code. This environment fosters learning and
+        growth, uniting our diverse team in commitment to our mission. By
+        forging strong relationships and solving meaningful problems, our
+        culture drives us forward. At DaitchPro, our values are not just words —
+        they fuel our pursuit of excellence.
+      </p>
+
+      <!-- VALUES  -->
+      <div
+        class="w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-row gap-8 items-stretch"
+      >
+        <!-- CARD -->
+        <div
+          class="h-full flex-1 rounded-2xl p-10 bg-gradient-to-t from-darkGreen/50 to-[#008dbd]/30 border backdrop-blur-md flex flex-col items-center text-center hover:bg-white/10 transition linear 700 cursor-pointer"
+        >
+          <img
+            src="icons/mdi_partnership.svg"
+            alt="respect"
+            class="w-16 h-16 mb-6"
+          />
+          <h3 class="text-2xl font-semibold font-jost mb-3">Respect</h3>
+          <p class="text-white/80 text-base font-jost leading-relaxed">
+            for teams and the mission
+          </p>
+        </div>
+
+        <!-- CARD -->
+        <div
+          class="h-full flex-1 rounded-2xl p-10 bg-gradient-to-t from-darkGreen/50 to-[#008dbd]/30 border backdrop-blur-md flex flex-col items-center text-center hover:bg-white/10 transition linear 700 cursor-pointer"
+        >
+          <img
+            src="icons/game-icons_crystal-growth.svg"
+            alt="respect"
+            class="w-16 h-16 mb-6"
+          />
+          <h3 class="text-2xl font-semibold font-jost mb-3">Innovation</h3>
+          <p class="text-white/80 text-base font-jost leading-relaxed">
+            that breaks limits and creates what’s next
+          </p>
+        </div>
+
+        <!-- CARD -->
+        <div
+          class="h-full flex-1 rounded-2xl p-10 bg-gradient-to-t from-darkGreen/50 to-[#008dbd]/30 border backdrop-blur-md flex flex-col items-center text-center hover:bg-white/10 transition linear 700 cursor-pointer"
+        >
+          <img
+            src="icons/logos_progress.svg"
+            alt="respect"
+            class="w-16 h-16 mb-6"
+          />
+          <h3 class="text-2xl font-semibold font-jost mb-3">Adaptability</h3>
+          <p class="text-white/80 text-base font-jost leading-relaxed">
+            to adapt fast and fix what’s broken
+          </p>
+        </div>
+
+        <!-- CARD -->
+        <div
+          class="h-full flex-1 rounded-2xl p-10 bg-gradient-to-t from-darkGreen/50 to-[#008dbd]/30 backdrop-blur-md border flex flex-col items-center text-center hover:bg-white/10 transition linear 700 cursor-pointer"
+        >
+          <img
+            src="icons/game-icons_growth.svg"
+            alt="respect"
+            class="w-16 h-16 mb-6"
+          />
+          <h3 class="text-2xl font-semibold font-jost mb-3">Ambition</h3>
+          <p class="text-white/80 text-base font-jost leading-relaxed">
+            to go further than yesterday
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Happy Cutomer -->
+    <section class="relative overflow-hidden font-roman">
+      <!-- Section Title -->
+      <div class="mt-20 flex flex-col items-center relative">
+        <div class="flex items-center space-x-2 mb-4">
+          <div class="w-3 h-3 bg-blue-300 rounded-full"></div>
+          <div
+            class="flex w-[20vw] md:w-[8vw] overflow-hidden gap-2 text-lg font-bold"
+          >
+            <p class="animate-marqueeFast">Testimonials</p>
+            <p class="animate-marqueeFast">Testimonials</p>
+            <p class="animate-marqueeFast">Testimonials</p>
+          </div>
+          <div class="w-3 h-3 bg-blue-300 rounded-full"></div>
+        </div>
+        <h1 class="text-2xl sm:text-4xl md:text-5xl font-semibold">
+          Our Happy <span class="text-teal-400">Customers</span>
+        </h1>
+      </div>
+
+      <!-- Slider Wrapper -->
+      <div class="w-full mt-16 mb-24 relative">
+        <div
+          class="max-w-[80vw] box-border overflow-hidden justify-center mx-auto py-6 px-10"
+        >
+          <div class="flex space-x-10 w-[200%] animate-marquee">
+            <!-- Card 1 -->
+            <div
+              class="min-w-[500px] h-[45%] bg-darkGreen/30 backdrop-blur-[1] rounded-3xl p-6"
+            >
+              <div class="text-center space-y-4 mb-6">
+                <h2 class="text-2xl font-semibold">
+                  Our clients trust us — and love the results they get!
+                </h2>
+
+                <p class="text-lg text-gray-300">
+                  Real stories. Real results. Trusted by businesses that grow
+                  with us.
+                </p>
+              </div>
+
+              <div class="flex justify-center gap-6">
+                <div class="flex -space-x-4">
+                  <img
+                    src="images/hero-img1.jpg"
+                    class="w-16 h-16 rounded-full border border-white/20"
+                  />
+                  <img
+                    src="images/hero-img2.jpg"
+                    class="w-16 h-16 rounded-full border border-white/20"
+                  />
+                  <img
+                    src="images/hero-img3.jpg"
+                    class="w-16 h-16 rounded-full border border-white/20"
+                  />
+                </div>
+                <div class="flex flex-col items-center">
+                  <p class="text-2xl font-bold">4.9/5 ⭐⭐⭐⭐⭐</p>
+                  <p class="text-gray-300 text-md">
+                    Trusted by 24+ happy clients
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div
+              class="min-w-[500px] h-[45%] bg-darkGreen/30 backdrop-blur-[1] rounded-3xl p-6"
+            >
+              <div class="text-center space-y-4 mb-6">
+                <h2 class="text-2xl font-semibold">
+                  Our clients trust us — and love the results they get!
+                </h2>
+
+                <p class="text-lg text-gray-300">
+                  Real stories. Real results. Trusted by businesses that grow
+                  with us.
+                </p>
+              </div>
+
+              <div class="flex justify-center gap-6">
+                <div class="flex -space-x-4">
+                  <img
+                    src="images/hero-img1.jpg"
+                    class="w-16 h-16 rounded-full border border-white/20"
+                  />
+                  <img
+                    src="images/hero-img2.jpg"
+                    class="w-16 h-16 rounded-full border border-white/20"
+                  />
+                  <img
+                    src="images/hero-img3.jpg"
+                    class="w-16 h-16 rounded-full border border-white/20"
+                  />
+                </div>
+                <div class="flex flex-col items-center">
+                  <p class="text-2xl font-bold">4.9/5 ⭐⭐⭐⭐⭐</p>
+                  <p class="text-gray-300 text-md">
+                    Trusted by 24+ happy clients
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!--Card 3-->
+            <div
+              class="min-w-[500px] h-[45%] bg-darkGreen/30 backdrop-blur-[1] rounded-3xl p-6"
+            >
+              <div class="text-center space-y-4 mb-6">
+                <h2 class="text-2xl font-semibold leading-snug">
+                  Our clients trust us — and love the results<br />they get!
+                </h2>
+
+                <p class="text-lg text-gray-300 leading-normal">
+                  Real stories. Real results. Trusted by businesses<br />that
+                  grow with us.
+                </p>
+              </div>
+
+              <div class="flex justify-center gap-6">
+                <div class="flex -space-x-4">
+                  <img
+                    src="images/hero-img1.jpg"
+                    class="w-16 h-16 rounded-full border border-white/20"
+                  />
+                  <img
+                    src="images/hero-img2.jpg"
+                    class="w-16 h-16 rounded-full border border-white/20"
+                  />
+                  <img
+                    src="images/hero-img3.jpg"
+                    class="w-16 h-16 rounded-full border border-white/20"
+                  />
+                </div>
+                <div class="flex flex-col items-center">
+                  <p class="text-2xl font-bold">4.9/5 ⭐⭐⭐⭐⭐</p>
+                  <p class="text-gray-300 text-md">
+                    Trusted by 24+ happy clients
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- card 3 end  -->
+
+            <!-- Duplicate Card -->
+            <!--duplicate card 1 -->
+            <div
+              class="min-w-[500px] h-[45%] bg-darkGreen/30 backdrop-blur-[1] rounded-3xl p-6"
+            >
+              <div class="text-center space-y-4 mb-6">
+                <h2 class="text-2xl font-semibold leading-snug">
+                  Our clients trust us — and love the results<br />they get!
+                </h2>
+
+                <p class="text-lg text-gray-300 leading-normal">
+                  Real stories. Real results. Trusted by businesses<br />that
+                  grow with us.
+                </p>
+              </div>
+
+              <div class="flex justify-center gap-6">
+                <div class="flex -space-x-4">
+                  <img
+                    src="images/hero-img1.jpg"
+                    class="w-16 h-16 rounded-full border border-white/20"
+                  />
+                  <img
+                    src="images/hero-img2.jpg"
+                    class="w-16 h-16 rounded-full border border-white/20"
+                  />
+                  <img
+                    src="images/hero-img3.jpg"
+                    class="w-16 h-16 rounded-full border border-white/20"
+                  />
+                </div>
+                <div class="flex flex-col items-center">
+                  <p class="text-2xl font-bold">4.9/5 ⭐⭐⭐⭐⭐</p>
+                  <p class="text-gray-300 text-md">
+                    Trusted by 24+ happy clients
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!--duplicate card 2 -->
+            <div
+              class="min-w-[500px] h-[45%] bg-darkGreen/30 backdrop-blur-[1] rounded-3xl p-6"
+            >
+              <div class="text-center space-y-4 mb-6">
+                <h2 class="text-2xl font-semibold leading-snug">
+                  Our clients trust us — and love the results<br />they get!
+                </h2>
+
+                <p class="text-lg text-gray-300 leading-normal">
+                  Real stories. Real results. Trusted by businesses<br />that
+                  grow with us.
+                </p>
+              </div>
+
+              <div class="flex justify-center gap-6">
+                <div class="flex -space-x-4">
+                  <img
+                    src="images/hero-img1.jpg"
+                    class="w-16 h-16 rounded-full border border-white/20"
+                  />
+                  <img
+                    src="images/hero-img2.jpg"
+                    class="w-16 h-16 rounded-full border border-white/20"
+                  />
+                  <img
+                    src="images/hero-img3.jpg"
+                    class="w-16 h-16 rounded-full border border-white/20"
+                  />
+                </div>
+                <div class="flex flex-col items-center">
+                  <p class="text-2xl font-bold">4.9/5 ⭐⭐⭐⭐⭐</p>
+                  <p class="text-gray-300 text-md">
+                    Trusted by 24+ happy clients
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!--duplicate card 3 -->
+            <div
+              class="min-w-[500px] h-[45%] bg-darkGreen/30 backdrop-blur-[1] rounded-3xl p-6"
+            >
+              <div class="text-center space-y-4 mb-6">
+                <h2 class="text-2xl font-semibold leading-snug">
+                  Our clients trust us — and love the results<br />they get!
+                </h2>
+
+                <p class="text-lg text-gray-300 leading-normal">
+                  Real stories. Real results. Trusted by businesses<br />that
+                  grow with us.
+                </p>
+              </div>
+
+              <div class="flex justify-center gap-6">
+                <div class="flex -space-x-4">
+                  <img
+                    src="images/hero-img1.jpg"
+                    class="w-16 h-16 rounded-full border border-white/20"
+                  />
+                  <img
+                    src="images/hero-img2.jpg"
+                    class="w-16 h-16 rounded-full border border-white/20"
+                  />
+                  <img
+                    src="images/hero-img3.jpg"
+                    class="w-16 h-16 rounded-full border border-white/20"
+                  />
+                </div>
+                <div class="flex flex-col items-center">
+                  <p class="text-2xl font-bold">4.9/5 ⭐⭐⭐⭐⭐</p>
+                  <p class="text-gray-300 text-md">
+                    Trusted by 24+ happy clients
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!--duplicate card 3 end -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI EXPERTS SECTION -->
+    <section class="relative overflow-hidden py-12 lg:py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <!-- Heading -->
+        <div class="text-center max-w-5xl mx-auto mb-12 lg:mb-16">
+          <h1
+            class="font-Bold font-jost text-4xl md:text-5xl lg:text-6xl leading-SNUG"
+          >
+            Building the Future of Automation
+            <span class="block"
+              >with <span class="text-[#00C7B3]">AI Experts</span></span
+            >
+          </h1>
+
+          <p
+            class="mt-6 text-sm sm:text-base md:text-lg text-[#CFE9DF] max-w-2xl mx-auto tracking-tight"
+          >
+            At DaitchPro, we create self-learning AI solutions that automate
+            discovery, optimize workflows, and transform teams into AI-native
+            enterprises
+          </p>
+        </div>
+
+        <!-- Cards grid -->
+        <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Card 1 -->
+          <article
+            class="relative rounded-2xl overflow-hidden border border-gray-900 bg-darkGreen/30 backdrop-blur-sm hover:scale-[1.05] cursor-pointer transition transition-transform duration-1000"
+          >
+            <!-- Image area -->
+            <div
+              class="w-full h-[420px] md:h-[520px] lg:h-[560px] flex items-end"
+            >
+              <!-- Use your image(s) here. Path from your workspace used as placeholder. -->
+              <img
+                src="images/1.png"
+                alt="Team member"
+                class="absolute inset-0 w-full h-full object-cover object-center"
+              />
+              <!-- bottom overlay content -->
+              <div class="relative z-10 p-8 md:p-10 lg:p-12">
+                <h3
+                  class="text-2xl md:text-[28px] lg:text-3xl font-semibold leading-tight"
+                >
+                  Olivia Bennett
+                </h3>
+                <p
+                  class="mt-2 text-sm md:text-base text-[#E8F4EE] font-medium opacity-90"
+                >
+                  CO-FOUNDER & CEO
+                </p>
+                <button
+                  class="mt-4 hover:text-violet-600 transition duration-500"
+                >
+                  Learn More →
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- duplicate card 2-->
+          <article
+            class="relative rounded-2xl overflow-hidden border border-gray-900 bg-darkGreen/30 backdrop-blur-sm hover:scale-[1.05] cursor-pointer transition transition-transform duration-1000"
+          >
+            <div
+              class="w-full h-[420px] md:h-[520px] lg:h-[560px] flex items-end"
+            >
+              <img
+                src="images/2.png"
+                alt="Team member"
+                class="absolute inset-0 w-full h-full object-cover object-center"
+              />
+              <div class="relative z-10 p-8 md:p-10 lg:p-12">
+                <h3
+                  class="text-2xl md:text-[28px] lg:text-3xl font-semibold leading-tight"
+                >
+                  Ethan Cole
+                </h3>
+                <p
+                  class="mt-2 text-sm md:text-base text-[#E8F4EE] font-medium opacity-90"
+                >
+                  CO-FOUNDER & CTO
+                </p>
+                <button
+                  class="mt-4 hover:text-violet-600 transition duration-500"
+                >
+                  Learn More →
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- duplicate card 3-->
+          <article
+            class="relative rounded-2xl overflow-hidden border border-gray-900 bg-darkGreen/30 backdrop-blur-sm hover:scale-[1.05] cursor-pointer transition transition-transform duration-1000"
+          >
+            <div
+              class="w-full h-[420px] md:h-[520px] lg:h-[560px] flex items-end"
+            >
+              <img
+                src="images/3.png"
+                alt="Team member"
+                class="absolute inset-0 w-full h-full object-cover object-center"
+              />
+              <div class="relative z-10 p-8 md:p-10 lg:p-12">
+                <h3
+                  class="text-2xl md:text-[28px] lg:text-3xl font-semibold leading-tight"
+                >
+                  Sophia Adams
+                </h3>
+                <p
+                  class="mt-2 text-sm md:text-base text-[#E8F4EE] font-medium opacity-90"
+                >
+                  CO-FOUNDER & CPO
+                </p>
+                <button
+                  class="mt-4 hover:text-violet-600 transition duration-500"
+                >
+                  Learn More →
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- duplicate card 4-->
+          <article
+            class="relative rounded-2xl overflow-hidden border border-gray-900 bg-darkGreen/30 backdrop-blur-sm hover:scale-[1.05] cursor-pointer transition transition-transform duration-1000"
+          >
+            <div
+              class="w-full h-[420px] md:h-[520px] lg:h-[560px] flex items-end"
+            >
+              <img
+                src="images/4.png"
+                alt="Team member"
+                class="absolute inset-0 w-full h-full object-cover object-center"
+              />
+              <div class="relative z-10 p-8 md:p-10 lg:p-12">
+                <h3
+                  class="text-2xl md:text-[28px] lg:text-3xl font-semibold leading-tight"
+                >
+                  Noah Carter
+                </h3>
+                <p
+                  class="mt-2 text-sm md:text-base text-[#E8F4EE] font-medium opacity-90"
+                >
+                  GTM
+                </p>
+                <button
+                  class="mt-4 hover:text-violet-600 transition duration-500"
+                >
+                  Learn More →
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- duplicate card 5-->
+          <article
+            class="relative rounded-2xl overflow-hidden border border-gray-900 bg-darkGreen/30 backdrop-blur-sm hover:scale-[1.05] cursor-pointer transition transition-transform duration-1000"
+          >
+            <div
+              class="w-full h-[420px] md:h-[520px] lg:h-[560px] flex items-end"
+            >
+              <img
+                src="images/5.png"
+                alt="Team member"
+                class="absolute inset-0 w-full h-full object-cover object-center"
+              />
+              <div class="relative z-10 p-8 md:p-10 lg:p-12">
+                <h3
+                  class="text-2xl md:text-[28px] lg:text-3xl font-semibold leading-tight"
+                >
+                  Ella Morgan
+                </h3>
+                <p
+                  class="mt-2 text-sm md:text-base text-[#E8F4EE] font-medium opacity-90"
+                >
+                  GTM
+                </p>
+                <button
+                  class="mt-4 hover:text-violet-600 transition duration-500"
+                >
+                  Learn More →
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- duplicate card 6-->
+          <article
+            class="relative rounded-2xl overflow-hidden border border-gray-900 bg-darkGreen/30 backdrop-blur-sm hover:scale-[1.05] cursor-pointer transition transition-transform duration-1000"
+          >
+            <div
+              class="w-full h-[420px] md:h-[520px] lg:h-[560px] flex items-end"
+            >
+              <img
+                src="images/6.png"
+                alt="Team member"
+                class="absolute inset-0 w-full h-full object-cover object-center"
+              />
+              <div class="relative z-10 p-8 md:p-10 lg:p-12">
+                <h3
+                  class="text-2xl md:text-[28px] lg:text-3xl font-semibold leading-tight"
+                >
+                  Leo Parker
+                </h3>
+                <p
+                  class="mt-2 text-sm md:text-base text-[#E8F4EE] font-medium opacity-90"
+                >
+                  GTM
+                </p>
+                <button
+                  class="mt-4 hover:text-violet-600 transition duration-500"
+                >
+                  Learn More →
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <!-- end grid -->
+      </div>
+      <!-- end container -->
+    </section>
+
+    <!-- AI Growth Section -->
+    <section
+      class="relative w-full bg-[url(images/last-sect-img.png)] bg-cover bg-center flex items-center justify-center bg-black mb-20 box-border rounded-lg"
+    >
+      <!-- Dark Overlay -->
+      <div class="absolute top-50 h-50 inset-0 bg-black/60"></div>
+
+      <!-- Glass Card Wrapper (same as screenshot) -->
+      <div class="relative w-full max-w-5xl mx-auto px-4 py-36">
+        <div
+          class="mx-auto text-center bg-white/10 backdrop-blur-md border border-white/30 rounded-xl py-10 px-16 shadow-2xl"
+        >
+          <!-- Heading -->
+          <h2
+            class="text-white font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-[40px]"
+          >
+            Ready to <span class="text-[#00E8C8] font-bold">automate</span> your
+            growth? Join DaitchPro and experience the power of intelligent
+            <span class="text-[#00E8C8] font-bold">AI automation</span>
+          </h2>
+        </div>
+        <!-- Buttons  -->
+         <div class="flex justify-center gap-4 mt-10 z-10">
+          <button
+            class="bg-gradient-to-t from-boldGreen/40 to-lightGreen/60 hover:bg-teal-600 font-semibold px-8 py-2 rounded-lg transition"
+          >
+            Start 14 Days Free Trial
+          </button>
+          <button
+            class=" bg-gradient-to-t from-boldGreen/40 to-lightGreen/60 font-semibold px-8 py-2 rounded-lg hover:bg-lightGreen hover:text-black transition"
+          >
+            Book a Demo
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="pt-5 pb-4">
+      <div class="container-footer">
+        <div class="row desktop-footer">
+          <div class="col-md-2 mb-4">
+            <img src="Website Logo.png" class="img-fluid mb-3" alt="" />
+          </div>
+
+          <div class="col-md-2 footer-col">
+            <h6 class="footer-title">Solutions</h6>
+            <ul class="list-unstyled">
+              <li>Web Agency</li>
+              <li>Digital Agency StartUps</li>
+              <li>SAAS</li>
+              <li>Social Media Agency</li>
+              <li>Marketing</li>
+              <li>Creative Agencies</li>
+              <li>Software Vendor</li>
+              <li>Sales</li>
+            </ul>
+          </div>
+
+          <div class="col-md-2 footer-col">
+            <h6 class="footer-title">Platform</h6>
+            <ul class="list-unstyled">
+              <li>AI Workforce</li>
+              <li>Marketplace</li>
+              <li>Automations</li>
+              <li>Project Management</li>
+              <li>Payments</li>
+            </ul>
+          </div>
+
+          <div class="col-md-2 footer-col">
+            <h6 class="footer-title">Areas we handle</h6>
+            <ul class="list-unstyled">
+              <li>Primary Care</li>
+              <li>Dental Practices</li>
+              <li>Salons</li>
+              <li>Home Services</li>
+              <li>Restaurants</li>
+              <li>Automotive Dealerships</li>
+              <li>Real Estate</li>
+              <li>Veterinary Clinics</li>
+              <li>Professional Services</li>
+              <li>Retail & E-commerce</li>
+              <li>Financial Services</li>
+              <li>Education & Tutoring</li>
+              <li>Mental Health</li>
+              <li>Gyms, Fitness Studios</li>
+              <li>Senior Care</li>
+              <li>Landscaping</li>
+              <li>Events & Venue</li>
+              <li>Logistics</li>
+              <li>Nonprofit Fundraising</li>
+              <li>SaaS, Agencies</li>
+            </ul>
+          </div>
+
+          <div class="col-md-2 footer-col mb-3">
+            <h6 class="footer-title">Company</h6>
+            <ul class="list-unstyled">
+              <a class="text-decoration-none" href="#"><li>About Us</li></a>
+              <a class="text-decoration-none" href="#"> <li>Contact Us</li></a>
+              <li>FAQs</li>
+              <li>Pricing</li>
+            </ul>
+          </div>
+          <div class="col-md-2 footer-col">
+            <h6 class="footer-title">Benefits</h6>
+            <ul class="list-unstyled">
+              <li>Review Management</li>
+              <li>Phone and Calling</li>
+            </ul>
+            <div class="col-md-2 footer-col">
+              <h6 class="footer-title">Products</h6>
+              <ul class="list-unstyled">
+                <li>AI WebChat</li>
+                <li>CRM</li>
+              </ul>
+            </div>
+            <div class="col-md-12 text-white text-start mt-5">
+              <p class="email me-5 mb-0"><strong>Email</strong></p>
+              <p>Info@DaitchPro.com</p>
+              <p class="mb-0"><strong>Phone Number</strong></p>
+              <p>+1 (309) 230-950</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mobile-only text-center">
+        <img
+          src="images/Logo.png"
+          class="img-fluid mb-3"
+          alt="DaitchPro Logo"
+          style="max-width: 170px"
+        />
+      </div>
+      <div class="newsletter text-start ms-5">
+        <h6>Subscribe To our Newsletter</h6>
+        <div class="d-flex text-start mt-4">
+          <input type="email" class="me-2 p-2" placeholder="Your Email" />
+          <button class="btn px-4">Get Started</button>
+        </div>
+      </div>
+      <div class="mobile-only text-center text-white">
+        <p class="mb-1"><strong>Email:</strong> Info@DaitchPro.com</p>
+        <p><strong>Phone:</strong> +1 (309) 230‑950</p>
+      </div>
+
+      <div class="text-center text-secondary mt-5">
+        © 2024 Copyright — DaitchPro| Designed by DaitchPro Team | All Rights
+        Reserved | Powered by AI Automation
+      </div>
+      <div class="mobile-only text-center mt-3">
+        <i class="fa-brands fa-facebook fa-2x me-3" style="color: #1877f2"></i>
+        <i class="fa-brands fa-twitter fa-2x me-3" style="color: #1da1f2"></i>
+        <i
+          class="fa-brands fa-square-instagram fa-2x"
+          style="color: #e4405f"
+        ></i>
+      </div>
+    </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
