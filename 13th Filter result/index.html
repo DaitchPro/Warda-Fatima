@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind Config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            jost: ["Jost", "sans-serif"],
+            roman: ['"Times New Roman"', "Times", "serif"],
+          },
+
+          screens: {
+            xsm: "320px",
+            sm: "640px",
+            md: "768px",
+            lg: "1024px",
+            mlg: "1143px",
+            xl: "1280px",
+            mxl: "1487px",
+            "2xl": "1994px",
+          },
+
+          extend: {
+            colors: {
+              lightGreen: "#00D8BD",
+              boldGreen: "#007666",
+              white: "#FFFFFF",
+
+              darkGreen: "#007666",
+              deepGreen: "#083D1F",
+              mintGreen: "#018B4B",
+              tealGreen: "#33B0A0",
+            },
+
+            backgroundImage: {
+              "gradient-dark": "linear-gradient(to right, #007666, #083D1F)",
+              "gradient-mint": "linear-gradient(to right, #018B4B, #33B0A0)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <title>Filter Result</title>
+  </head>
+  <body
+    class="bg-[url('images/bg-Grid.png')] text-white min-h-screen font-jost px-4"
+  >
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="nav-container">
+        <!-- Logo -->
+        <div class="logo-container d-flex align-items-center">
+          <img src="images/Logo.png" alt="Logo" class="logo-img" />
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav id="navMenu" class="d-lg-flex align-items-center gap-3">
+          <a href="#" class="custom-nav">Home</a>
+          <a href="#" class="custom-nav">About Us</a>
+          <a href="#" class="custom-nav">Contact Us</a>
+
+          <nav>
+            <a
+              href="#"
+              class="custom-nav"
+              id="platformToggle"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Platform
+            </a>
+
+            <ul
+              class="dropdown-menu"
+              id="platformMenu"
+              role="menu"
+              aria-labelledby="platformToggle"
+            >
+              <li role="none"><a role="menuitem" href="#">AI Workforce</a></li>
+              <li role="none"><a role="menuitem" href="#">MarketPlace</a></li>
+              <li role="none"><a role="menuitem" href="#">Automations</a></li>
+              <li role="none">
+                <a role="menuitem" href="#">Project Management</a>
+              </li>
+              <li role="none"><a role="menuitem" href="#">Payments</a></li>
+            </ul>
+          </nav>
+
+          <a href="#" class="custom-nav">Solutions</a>
+          <a href="#" class="custom-nav">Products</a>
+        </nav>
+
+        <div class="nav-auth d-lg-flex align-items-center gap-2">
+          <a href=""><button class="auth-btn">Log In</button></a>
+          <a href=""><button class="auth-btn">Sign Up</button></a>
+        </div>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mobileMenu"
+        >
+          ☰
+        </button>
+      </div>
+    </header>
+
+    <div class="offcanvas offcanvas-end bg-dark text-white" id="mobileMenu">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Menu</h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+        ></button>
+      </div>
+
+      <div class="offcanvas-body">
+        <nav class="d-flex flex-column gap-2">
+          <a href="#" class="mobile-nav" data-bs-dismiss="offcanvas">Home</a>
+          <a href="#" class="mobile-nav" data-bs-dismiss="offcanvas"
+            >About Us</a
+          >
+          <a href="#" class="mobile-nav" data-bs-dismiss="offcanvas"
+            >Contact Us</a
+          >
+          <a
+            href="#"
+            class="custom-nav"
+            id="platformToggle"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Platform
+          </a>
+
+          <ul
+            class="dropdown-menu"
+            id="platformMenu"
+            role="menu"
+            aria-labelledby="platformToggle"
+          >
+            <li role="none"><a role="menuitem" href="#">AI Workforce</a></li>
+            <li role="none"><a role="menuitem" href="#">MarketPlace</a></li>
+            <li role="none"><a role="menuitem" href="#">Automations</a></li>
+            <li role="none">
+              <a role="menuitem" href="#">Project Management</a>
+            </li>
+            <li role="none"><a role="menuitem" href="#">Payments</a></li>
+          </ul>
+          <ul
+            class="dropdown-menu"
+            id="solutionsMenu"
+            role="menu"
+            aria-labelledby="solutionToggle"
+          >
+            <li role="none"><a role="menuitem" href="#">Web Agency</a></li>
+            <li role="none">
+              <a role="menuitem" href="#">Digital Agency Startup</a>
+            </li>
+            <li role="none"><a role="menuitem" href="#">SaaS</a></li>
+            <li role="none">
+              <a role="menuitem" href="#">Social Media Agency</a>
+            </li>
+            <li role="none"><a role="menuitem" href="#">Marketing</a></li>
+            <li role="none">
+              <a role="menuitem" href="#">Creative Agencies</a>
+            </li>
+            <li role="none"><a role="menuitem" href="#">Software vendor</a></li>
+            <li role="none"><a role="menuitem" href="#">Sales</a></li>
+          </ul>
+          <a href="#" class="mobile-nav" data-bs-dismiss="offcanvas"
+            >Products</a
+          >
+        </nav>
+
+        <div class="mt-4 d-flex flex-column gap-2">
+          <a href=""><button class="auth-btn w-100">Log In</button></a>
+          <a href=""><button class="auth-btn w-100">Sign Up</button></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 1 -->
+    <section class="relative w-full py-20">
+      <!-- Breadcrumb -->
+      <div
+        class="w-full mb-6 bg-gradient-to-t from-[#0030295c] to-[#000f0d8a] border-y-2 border-dark px-20 py-6 backdrop-blur-sm"
+      >
+        <p class="text-xl">
+          DaitchPro /
+          <span class="text-teal-400">AI Agent Demo</span>
+        </p>
+        <h1 class="text-5xl font-semibold mt-1 tracking-wide">AI Agent Demo</h1>
+      </div>
+      <div class="relative max-w-6xl mx-auto text-white px-10 mt-10">
+        <div
+          class="mt-12 bg-gradient-to-t from-[#0030295c] to-[#000f0d8a] backdrop-blur-sm border-2 border-[#0B3A2E] rounded-xl p-12 text-center shadow-2xl"
+        >
+          <h2 class="text-3xl md:text-5xl font-semibold leading-snug">
+            AI Voice Agents: Speak to the Future <br />
+            of Sales & <span class="text-[#00E9BE]">Support Automation</span>
+          </h2>
+
+          <p class="text-gray-300 text-xl mt-5 tracking-wide">
+            Experience DaitchPro's 18+ Niche-Trained AI Experts Live. No Sign-up
+            <br />
+            Required
+          </p>
+
+          <button
+            class="mt-8 bg-darkGreen/60 font-semibold px-10 py-2 mt-6 rounded-lg hover:bg-tealGreen transition"
+          >
+            Start Quick Demo
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- Section 1 end -->
+
+    <!-- Section 2 -->
+    <section class="relative w-full py-20">
+      <div
+        class="relative max-w-6xl mx-auto text-white px-6 border-2 border-[#00E9BE] rounded-xl p-12 bg-[#031D17]/40 backdrop-blur-xl"
+      >
+        <h2 class="text-3xl md:text-5xl font-semibold text-center">
+          Choose Your <span class="text-[#00E9BE]">AI Expert</span> by Niche
+        </h2>
+        <p class="text-gray-300 text-center text-xl p-4 mt-3">
+          Each agent is custom-trained on industry-specific knowledge and
+          closing <br />
+          strategies
+        </p>
+
+        <!-- Search + Dropdown -->
+        <div
+          class="mt-10 flex flex-col border-1 border-[#032f17] rounded-lg p-2 md:flex-row gap-4"
+        >
+          <div
+            class="flex items-center gap-3 w-full border-2 border-[#0B3A2E] rounded-md bg-[#031D17]/70 px-4 py-3"
+          >
+            <span class="text-gray-400 text-lg"
+              ><i class="fa-solid fa-magnifying-glass"></i
+            ></span>
+            <input
+              type="text"
+              placeholder="Search Niche (e.g., Primary Care, Dental Practice, Salons)..."
+              class="bg-transparent w-full focus:outline-none text-sm placeholder-gray-400 text-white"
+            />
+          </div>
+
+          <div
+            class="flex items-center justify-between border-2 border-[#0B3A2E] rounded-md bg-[#031D17]/70 px-4 w-full md:w-64 cursor-pointer"
+          >
+            <span class="text-white text-sm">Dental Practice</span>
+            <span class="text-gray-300 text-md"
+              ><i class="fa-solid fa-caret-down"></i
+            ></span>
+          </div>
+        </div>
+
+        <!-- Card -->
+        <div class="mt-12">
+          <div
+            class="flex flex-col gap-2 w-64 bg-[#031D17]/70 border-1 border-deepGreen rounded-xl p-2 shadow-lg"
+          >
+            <div class="w-full h-36 bg-gray-300 rounded-md mb-4">
+              <img src="images/hero-img.png" alt="">
+            </div>
+
+            <div class="mt-4">
+              <h3 class="text-[#00E9BE] font-semibold text-lg text-center">
+              Dental Practices
+            </h3>
+            <p class="text-gray-300 text-xs mt-2 leading-relaxed text-center">
+              Handles bookings, insurance verification, and pre-appointment
+              instructions.
+            </p>
+
+            <button
+              class="w-full mt-8 bg-darkGreen/60 font-semibold px-10 py-2 mt-2 rounded-lg hover:bg-tealGreen transition"
+            >
+              Try Now
+            </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Section 2 end -->
+
+    <!-- Section 3 -->
+    <section class="relative w-full py-20 mt-10">
+      <div
+        class="relative max-w-7xl mx-auto text-white px-10 border-1 border-[#00E9BE] rounded-2xl bg-[#031D17]/40 backdrop-blur-xl"
+      >
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 relative">
+          <!-- Vertical Divider -->
+          <div
+            class="hidden md:block absolute left-1/2 top-0 h-full w-px bg-[#00E9BE]/20"
+          ></div>
+
+          <!-- LEFT PANEL -->
+          <div class="flex flex-col justify-between">
+            <!-- left top -->
+            <div>
+              <div
+                class="flex items-center gap-1 mb-8 py-4 border-b-2 border-gray-500"
+              >
+                <img src="images/Logo.png" alt="logo" class="w-30 h-6" />
+                <span class="text-xl font-semibold text-gray-300 font-roman">
+                  Dental Assistant</span
+                >
+              </div>
+
+              <!-- Chat Bubbles Left -->
+              <div class="space-y-5 py-2">
+                <!-- Message 1 -->
+                <div class="flex items-start gap-3 w-4/5">
+                  <div
+                    class="w-7 h-7 rounded-full p-2 bg-[#00E9BE]/20 flex items-center justify-center text-[#00E9BE] text-xs"
+                  >
+                    <i class="fa-solid fa-robot"></i>
+                  </div>
+                  <div
+                    class="bg-[#0A2A23]/80 text-sm p-2 rounded-xl border-1 border-[#0B3A2E] leading-relaxed"
+                  >
+                    Welcome to Our Dental AI Demo. You can ask me to book an
+                    appointment, inquire about services or ask for dental
+                    advice.<br />Click the mic to start!
+                  </div>
+                </div>
+
+                <!-- User Message -->
+                <div class="flex justify-end w-full">
+                  <div class="flex items-start gap-3 w-4/5 justify-end">
+                    <div
+                      class="bg-[#00E9BE]/20 text-sm p-2 rounded-xl border-1 border-[#00E9BE] leading-relaxed"
+                    >
+                      Hi, I'd like to book a cleaning Appointment.
+                    </div>
+                    <div class="w-7 h-7 rounded-full">
+                      <img
+                        src="images/chat-img.jpg"
+                        alt="chat img"
+                        class="rounded-full"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!-- Message 2 -->
+                <div class="flex items-start gap-3 w-4/5">
+                  <div
+                    class="w-7 h-7 p-2 rounded-full bg-[#00E9BE]/20 flex items-center justify-center text-[#00E9BE] text-xs"
+                  >
+                    <i class="fa-solid fa-robot"></i>
+                  </div>
+                  <div
+                    class="bg-[#0A2A23]/80 text-sm p-2 rounded-xl border-1 border-[#0B3A2E] leading-relaxed"
+                  >
+                    Of course! I can help you with that. When would be a good
+                    day and Time for You?
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- MIC AREA  left bottom-->
+            <div class="flex flex-col items-center mb-4">
+              <div class="mt-14 text-center">
+                <p class="text-gray-300 mb-4">AI is Listening...</p>
+                <button
+                  class="w-20 h-20 rounded-full border-1 border-[#00E9BE] shadow-[0_0_10px_#00E9BE] flex items-center justify-center text-3xl text-[#00E9BE]"
+                >
+                  <i class="fa-solid fa-microphone"></i>
+                </button>
+              </div>
+
+              <!-- Input -->
+              <div
+                class="w-50 mt-6 flex items-center border border-[#00E9BE] rounded-lg px-4 py-3 bg-[#031D17]/70"
+              >
+                <input
+                  type="text"
+                  placeholder="Or Type Your Message Here..."
+                  class="bg-transparent w-full focus:outline-none text-sm text-white placeholder-gray-400"
+                />
+                <i class="fa-solid fa-arrow-right text-[#00E9BE]"></i>
+              </div>
+            </div>
+          </div>
+          <!-- RIGHT PANEL -->
+          <div class="pl-6 py-4">
+            <div class="flex items-center justify-between mb-8">
+              <h2 class="text-2xl font-semibold">
+                Real-Time Conversation Insights
+              </h2>
+              <span class="text-sm text-gray-300">00:42</span>
+            </div>
+
+            <!-- Chat Bubbles Right -->
+            <div class="space-y-5 py-3">
+              <!-- Bot bubble -->
+              <div class="flex items-start gap-3 w-4/5">
+                <div
+                  class="w-7 h-7 p-2 rounded-full bg-[#00E9BE]/20 flex items-center justify-center text-[#00E9BE] text-xs"
+                >
+                  <i class="fa-solid fa-robot"></i>
+                </div>
+                <div>
+                  <div
+                    class="bg-[#0A2A23]/80 text-sm p-2 rounded-xl border border-[#0B3A2E] leading-relaxed"
+                  >
+                    Hello, this is the AI voice Agent. How can I Assist You
+                    Today?
+                  </div>
+                  <p class="text-xs text-orange-300 mt-1">Neutral</p>
+                </div>
+              </div>
+
+              <!-- User bubble -->
+              <div class="flex justify-end w-full">
+                <div class="flex items-start gap-3 w-4/5 justify-end">
+                  <div>
+                    <div
+                      class="bg-[#00E9BE]/20 text-sm p-2 rounded-xl border border-[#00E9BE] leading-relaxed"
+                    >
+                      I need to book an appointment, but I'm in a lot of pain.
+                      It feels urgent.
+                    </div>
+                    <p class="text-xs text-red-400 mt-1 text-center">
+                      Sentiment: Negative
+                      <span class="text-gray-400">- Accuracy: 98%</span>
+                    </p>
+                  </div>
+                  <div class="w-7 h-7 rounded-full">
+                    <img
+                      src="images/chat-img.jpg"
+                      alt="chat img"
+                      class="rounded-full"
+                    />
+                  </div>
+                </div>
+              </div>
+              <!-- Bot bubble -->
+              <div class="flex items-start gap-3 w-4/5">
+                <div
+                  class="w-7 h-7 p-2 rounded-full bg-[#00E9BE]/20 flex items-center justify-center text-[#00E9BE] text-xs"
+                >
+                  <i class="fa-solid fa-robot"></i>
+                </div>
+                <div>
+                  <div
+                    class="bg-[#0A2A23]/80 text-sm p-2 rounded-xl border border-[#0B3A2E] leading-relaxed"
+                  >
+                    I understand. I'm sorry to hear You're in pain. I can help
+                    with that right away. Could you please confirm the patient's
+                    full name?
+                  </div>
+                  <p class="text-xs text-green-400 mt-1">Positive</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- SENTIMENT ANALYSIS -->
+            <div class="mt-10">
+              <p class="text-2xl mb-3">Sentiment Analysis</p>
+              <div class="border border-[#0B3A2E] rounded-xl p-2">
+                <div
+                  class="flex justify-between text-red-400 text-md font-semibold mb-3 px-2"
+                >
+                  <p>Negative</p>
+                  <p><i class="fa-regular fa-face-frown"></i></p>
+                </div>
+                <div class="w-full h-2 bg-gray-800 overflow-hidden flex">
+                  <div class="h-full w-2/4 bg-green-500"></div>
+                  <div class="h-full w-2/4 bg-yellow-400"></div>
+                  <div class="h-full w-2/4 bg-red-600"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- INTENT DETECTION -->
+            <div class="mt-8">
+              <p class="text-2xl mb-3">Intent Detection</p>
+              <div class="flex gap-4">
+                <span
+                  class="px-3 py-1 bg-[#00E9BE]/20 text-[#00E9BE] text-xs rounded-md border-1 border-[#00E9BE]"
+                  >Appointment Booking</span
+                >
+                <span
+                  class="px-3 py-1 bg-red-500/20 text-red-400 text-xs rounded-md border-1 border-red-500"
+                  >Urgent Medical Issues</span
+                >
+              </div>
+            </div>
+            <!-- MEMORY TABLE -->
+            <div class="mt-8">
+              <p class="text-2xl mb-3">AI Memory / Context</p>
+              <div
+                class="border-2 border-[#0B3A2E] rounded-xl p-2 text-sm space-y-2"
+              >
+                <div class="flex justify-between">
+                  <span>Patient Name</span
+                  ><span class="text-gray-300">Pending</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Procedure Requested</span><span>Appointment</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Urgency</span><span class="text-red-400">High</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Next Step</span><span>Confirm Patient Name</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- section 3 end -->
+
+    <!-- last Section -->
+    <section
+      class="w-full font-roman flex justify-center bg-gradient-to-t from-lightGreen/10 to-darkGreen/30 backdrop-blur-md py-24 mb-20 rounded-xl"
+    >
+      <div class="text-center w-[90%] max-w-3xl">
+        <h2 class="text-4xl md:text-5xl font-semibold text-white leading-tight">
+          Grow Smarter and Earn More
+          <br />
+          with <span class="text-teal-400">DaitchPro</span>
+        </h2>
+
+        <p class="text-gray-300 text-3xl mt-4">
+          Step into the future of automation with DaitchPro.
+        </p>
+
+        <p class="text-gray-300 text-xl mt-6 leading-relaxed">
+          Experience an intelligent all-in-one platform designed to streamline
+          your workflows, boost sales, and scale your business effortlessly.
+          <br />
+          Connect with our team or start your free trial today — and see how AI
+          can transform the way you work.
+        </p>
+
+        <div class="flex justify-center gap-4 mt-10">
+          <button
+            class="bg-gradient-to-t from-boldGreen/40 to-lightGreen/60 hover:bg-teal-600 font-semibold px-8 py-2 rounded-lg transition"
+          >
+            See All Pricing Models
+          </button>
+          <button
+            class="border-2 border-gray-500 text-teal-400 font-semibold px-8 py-2 rounded-lg hover:bg-lightGreen hover:text-black transition"
+          >
+            Book a Demo
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- last Section end -->
+
+    <!-- footer -->
+    <footer class="pt-5 pb-4">
+      <div class="container-footer">
+        <div class="row desktop-footer">
+          <div class="col-md-2 mb-4">
+            <img src="Website Logo.png" class="img-fluid mb-3" alt="" />
+          </div>
+
+          <div class="col-md-2 footer-col">
+            <h6 class="footer-title">Solutions</h6>
+            <ul class="list-unstyled">
+              <li>Web Agency</li>
+              <li>Digital Agency StartUps</li>
+              <li>SAAS</li>
+              <li>Social Media Agency</li>
+              <li>Marketing</li>
+              <li>Creative Agencies</li>
+              <li>Software Vendor</li>
+              <li>Sales</li>
+            </ul>
+          </div>
+
+          <div class="col-md-2 footer-col">
+            <h6 class="footer-title">Platform</h6>
+            <ul class="list-unstyled">
+              <li>AI Workforce</li>
+              <li>Marketplace</li>
+              <li>Automations</li>
+              <li>Project Management</li>
+              <li>Payments</li>
+            </ul>
+          </div>
+
+          <div class="col-md-2 footer-col">
+            <h6 class="footer-title">Areas we handle</h6>
+            <ul class="list-unstyled">
+              <li>Primary Care</li>
+              <li>Dental Practices</li>
+              <li>Salons</li>
+              <li>Home Services</li>
+              <li>Restaurants</li>
+              <li>Automotive Dealerships</li>
+              <li>Real Estate</li>
+              <li>Veterinary Clinics</li>
+              <li>Professional Services</li>
+              <li>Retail & E-commerce</li>
+              <li>Financial Services</li>
+              <li>Education & Tutoring</li>
+              <li>Mental Health</li>
+              <li>Gyms, Fitness Studios</li>
+              <li>Senior Care</li>
+              <li>Landscaping</li>
+              <li>Events & Venue</li>
+              <li>Logistics</li>
+              <li>Nonprofit Fundraising</li>
+              <li>SaaS, Agencies</li>
+            </ul>
+          </div>
+
+          <div class="col-md-2 footer-col mb-3">
+            <h6 class="footer-title">Company</h6>
+            <ul class="list-unstyled">
+              <a class="text-decoration-none" href="#"><li>About Us</li></a>
+              <a class="text-decoration-none" href="#"> <li>Contact Us</li></a>
+              <li>FAQs</li>
+              <li>Pricing</li>
+            </ul>
+          </div>
+          <div class="col-md-2 footer-col">
+            <h6 class="footer-title">Benefits</h6>
+            <ul class="list-unstyled">
+              <li>Review Management</li>
+              <li>Phone and Calling</li>
+            </ul>
+            <div class="col-md-2 footer-col">
+              <h6 class="footer-title">Products</h6>
+              <ul class="list-unstyled">
+                <li>AI WebChat</li>
+                <li>CRM</li>
+              </ul>
+            </div>
+            <div class="col-md-12 text-white text-start mt-5">
+              <p class="email me-5 mb-0"><strong>Email</strong></p>
+              <p>Info@DaitchPro.com</p>
+              <p class="mb-0"><strong>Phone Number</strong></p>
+              <p>+1 (309) 230-950</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mobile-only text-center">
+        <img
+          src="images/Logo.png"
+          class="img-fluid mb-3"
+          alt="DaitchPro Logo"
+          style="max-width: 170px"
+        />
+      </div>
+      <div class="newsletter text-start ms-5">
+        <h6>Subscribe To our Newsletter</h6>
+        <div class="d-flex text-start mt-4">
+          <input type="email" class="me-2 p-2" placeholder="Your Email" />
+          <button class="btn px-4">Get Started</button>
+        </div>
+      </div>
+      <div class="mobile-only text-center text-white">
+        <p class="mb-1"><strong>Email:</strong> Info@DaitchPro.com</p>
+        <p><strong>Phone:</strong> +1 (309) 230‑950</p>
+      </div>
+
+      <div class="text-center text-secondary mt-5">
+        © 2024 Copyright — DaitchPro| Designed by DaitchPro Team | All Rights
+        Reserved | Powered by AI Automation
+      </div>
+      <div class="mobile-only text-center mt-3">
+        <i class="fa-brands fa-facebook fa-2x me-3" style="color: #1877f2"></i>
+        <i class="fa-brands fa-twitter fa-2x me-3" style="color: #1da1f2"></i>
+        <i
+          class="fa-brands fa-square-instagram fa-2x"
+          style="color: #e4405f"
+        ></i>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
