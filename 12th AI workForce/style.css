@@ -1,0 +1,244 @@
+body {
+  background: #000;
+}
+:root {
+  --green-1: #0f3725;
+  --green-2: #0d8a56;
+  --hover-green: #14c25a;
+}
+.navbar {
+  width: 97%;
+  background: #030913;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  border-top: 2px solid rgb(251, 251, 253);
+  border-radius: 30px;
+  z-index: 9999;
+}
+
+.nav-container {
+  width: 100%;
+  padding-right: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-img {
+  height: 30px;
+  padding-left: 30px;
+}
+
+.menu-toggle {
+  font-size: 22px;
+  color: #fff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 10px;
+  display: none;
+}
+
+#navMenu .custom-nav {
+  position: relative;
+  color: white;
+  font-weight: 500;
+  padding: 6px 10px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: 0.25s ease;
+}
+
+#navMenu .custom-nav::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 20%;
+  height: 4px;
+  background: var(--hover-green);
+  border-radius: 20px;
+  transition: width 0.3s ease;
+}
+
+#navMenu .custom-nav:hover {
+  color: var(--hover-green);
+}
+
+#navMenu .custom-nav:hover::after {
+  width: 100%;
+}
+
+.auth-btn {
+  background: var(--green-1);
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  min-width: 100px;
+}
+
+.auth-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 100%;
+  background: var(--hover-green);
+  z-index: -1;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+.auth-btn:hover::after {
+  width: 100%;
+}
+
+.mobile-nav {
+  color: white;
+  font-size: 18px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+}
+
+.mobile-nav:hover {
+  color: var(--hover-green);
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  #navMenu,
+  .nav-auth {
+    display: none !important;
+  }
+}
+
+:root {
+  --bg: #fff;
+  --border: #e5e7eb;
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+nav {
+  position: relative;
+  display: inline-block;
+}
+
+.custom-nav {
+  display: inline-block;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  border-radius: 6px;
+}
+.custom-nav::after,
+.custom-nav .caret,
+.custom-nav .dropdown-caret {
+  display: none !important;
+  content: none !important;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 6px);
+  min-width: 180px;
+  margin: 0;
+  padding: 8px 0;
+  list-style: none;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  z-index: 999;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 8px 14px;
+  text-decoration: none;
+  color: #111827;
+  font-size: 14px;
+}
+
+.dropdown-menu li a:hover,
+.dropdown-menu li a:focus {
+  background: #f3f4f6;
+  outline: none;
+}
+
+@media (max-width: 420px) {
+  .dropdown-menu {
+    min-width: 140px;
+  }
+}
+
+footer {
+  background: #082a0cfd;
+  color: #fff;
+}
+.footer-title {
+  color: #6ff3e8;
+  font-weight: bold;
+}
+.footer-col ul {
+  padding-left: 0;
+}
+.footer-col ul li {
+  color: #c7d8d8;
+  font-size: 13px;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+.newsletter input {
+  max-width: 260px;
+  border-radius: 10px;
+  background: #092b25;
+  border: 2px solid white;
+  color: white;
+}
+
+.newsletter button {
+  border-radius: 20px;
+  color: white;
+  border-radius: 20px;
+  background-color: #0b4528;
+  font-weight: bold;
+}
+.newsletter h6 {
+  font-size: 20px;
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  .desktop-footer {
+    display: none !important;
+  }
+  .mobile-only {
+    display: block !important;
+  }
+}
+@media (min-width: 769px) {
+  .mobile-only {
+    display: none !important;
+    font-weight: bold;
+  }
+}
